@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home</title>
+  <!-- library Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Garlection</a>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+            <div class="card" id="my-location-card">
+              <div class="card-header">
+                <h5>Lokasi Saya</h5>
+              </div>
+              <div class="card-body">
+                <p>Latitude: <span id="latitude"></span></p>
+                <p>Longitude: <span id="longitude"></span></p>
+              </div>
+            </div>
+
+
+
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-header" onclick="window.location.href='jadwal.html';">
+            <h5>Jadwal Pengangkutan Sampah</h5>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li>Senin: 08.00 - 12.00</li>
+              <li>Rabu: 14.00 - 18.00</li>
+              <li>Jumat: 08.00 - 12.00</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-header" onclick="window.location.href='lokasi.html';">
+            <h5>Lokasi Penampungan Sampah</h5>
+          </div>
+          <div class="card-body">
+            <p>Alamat: Jl. Jendral Sudirman No. 123</p>
+            <p>Kota: Jakarta Selatan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mendapatkan lokasi user saat ini
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      document.getElementById("latitude").innerHTML = latitude;
+      document.getElementById("longitude").innerHTML = longitude;
+    });
+
+
+  // ambil elemen card
+  const myLocationCard = document.querySelector('#my-location-card');
+  
+  // tambahkan event click pada card
+  myLocationCard.addEventListener('click', () => {
+    // pindah ke halaman map.html
+    window.location.href = "map.html";
+  });
+
+
+  </script>
+
+</body>
+</html>
