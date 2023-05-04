@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home</title>
+  <!-- library Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="assets/garlection behbroh (1) 1.svg" alt="" width="49">
+      Garlection</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="profile.html"><i class="bi bi-person"></i> Profile</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <figure class="figure">
+      <a href="map.html">
+        <img style="border:7px solid black;" src="assets/mapsicon.jpg" class="figure-img img-fluid rounded" alt="image"
+          height="200" width="200">
+        <figcaption class="figure-caption">Lokasi Saat Ini</figcaption>
+      </a>
+    </figure>
+  </div>
+
+  <div class="container">
+    <figure class="figure">
+      <a href="jadwal.html">
+        <img style="border:7px solid black;" src="assets/garbagetrckikon.jpg" class="figure-img img-fluid rounded"
+          alt="image" height="200" width="200">
+        <figcaption class="figure-caption">Jadwal Pengangkutan Sampah</figcaption>
+      </a>
+    </figure>
+  </div>
+
+
+  <div class="container">
+    <figure class="figure">
+      <a href="lokasi.html">
+        <img style="border:7px solid black;" src="assets/tngsmph.jpg" class="figure-img img-fluid rounded" alt="image"
+          height="200" width="200">
+        <figcaption class="figure-caption">Lokasi Penampungan Sampah</figcaption>
+      </a>
+    </figure>
+  </div>
+
+  </div>
+  </div>
+  </div>
+
+
+
+
+  <script>
+    // Mendapatkan lokasi user saat ini
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      document.getElementById("latitude").innerHTML = latitude;
+      document.getElementById("longitude").innerHTML = longitude;
+    });
+
+
+    // ambil elemen card
+    const myLocationCard = document.querySelector('#my-location-card');
+
+    // tambahkan event click pada card
+    myLocationCard.addEventListener('click', () => {
+      // pindah ke halaman map.html
+      window.location.href = "map.html";
+    });
+
+
+  </script>
+
+</body>
+
+</html>
